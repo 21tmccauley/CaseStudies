@@ -1,0 +1,32 @@
+# Node.js dependencies
+node_modules/
+
+# Environment variables
+.env
+
+# Log files
+*.log
+
+# IDE and editor files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Compiled and generated files
+dist/
+build/
+public/bundle.js
+public/bundle.js.map
+
+# Miscellaneous
+.cache/
+.npm/
+.yarn/
+*.bak
+*.swp
+*.swo

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marketing Case Study Generator</title>
+  <link rel="stylesheet" href="./style.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Marketing Case Study Generator</h1>
+    </header>
+
+    <main>
+      <section>
+        <h2>Generate a Case Study</h2>
+        <form @submit.prevent="generateCaseStudy">
+          <div>
+            <label for="prompt">Prompt:</label>
+            <textarea id="prompt" v-model="prompt" rows="4" required></textarea>
+          </div>
+          <button type="submit" :disabled="isLoading">{{ isLoading ? 'Generating...' : 'Generate' }}</button>
+        </form>
+        <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
+      </section>
+
+      <section>
+        <h2>Generated Case Studies</h2>
+        <div v-if="caseStudies.length === 0">No case studies generated yet.</div>
+        <div v-else>
+          <article v-for="(caseStudy, index) in caseStudies" :key="index">
+            <h3>Prompt: {{ caseStudy.prompt }}</h3>
+            <p>{{ caseStudy.text }}</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      &copy; 2023 Marketing Case Study Generator. All rights reserved.
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
